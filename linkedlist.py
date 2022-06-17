@@ -1,8 +1,3 @@
-from itertools import count
-from logging import root
-from tkinter.messagebox import NO
-
-
 class Node:
     def __init__(self,data=None,next=None) :
         self.data=data;
@@ -89,7 +84,7 @@ class linkedlist:
 
 
 
-if __name__=='__main__':
+
     # root=linkedlist()
     # root.insert_at_beginning(5)
     # root.insert_at_beginning(10)
