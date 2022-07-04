@@ -1,29 +1,29 @@
-# class HashTable:
-#     def __init__(self):
-#         self.Max=100;
-#         self.arr = [None]*self.Max;
+class HashTable:
+    def __init__(self):
+        self.Max=100;
+        self.arr = [None]*self.Max;
 
-#     def get_hashKey(self,key):
-#         sum=0;
-#         for c in key:
-#             sum +=ord(c)
-#         return sum % self.Max
+    def get_hashKey(self,key):
+        sum=0;
+        for c in key:
+            sum +=ord(c)
+        return sum % self.Max
 
-#     def __setitem__(self,key,value):
-#         h=self.get_hashKey(key);
-#         self.arr[h]=value;
-#         return self.arr;
+    def __setitem__(self,key,value):
+        h=self.get_hashKey(key);
+        self.arr[h]=value;
+        return self.arr;
 
-#     def __getitem__(self,key):
-#         h=self.get_hashKey(key);
-#         return self.arr[h];
+    def __getitem__(self,key):
+        h=self.get_hashKey(key);
+        return self.arr[h];
 
 
-# if __name__ == '__main__':
-#     h = HashTable()
-#     print(h.get_hashKey("haseeh"))
-#     print(h.__setitem__("haseeh",303))
-#     print(h.__getitem__("haseeh"))
+if __name__ == '__main__':
+    h = HashTable()
+    print(h.get_hashKey("haseeh"))
+    print(h.__setitem__("haseeh",303))
+    print(h.__getitem__("haseeh"))
 
 
 
