@@ -89,6 +89,28 @@ class BinarySearchTreenode():
         return left_side + right_side + self.data
 
 
+    def delete(self,val):
+        if val < self.data:
+            if self.left:
+                self.left.delete(val)
+        if val > self.data:
+            if self.right:
+                self.right.delete(val)
+        
+        else:
+            if self.left is None and self.right is None:
+                return None;
+            if self.left is None:
+                return self.right
+            if self.right is None:
+                return self.left;
+            min_val=self.right.find_min()
+            self.data=min_val;
+            self.right = self.right.delete(min_val)
+
+        return self
+
+
 
 def build_tree(elements):
     print("Building tree with these elements:",elements)
@@ -109,16 +131,18 @@ if __name__ == "__main__":
     # print(root.pre_order_traversal())
     # print(root.post_order_traversal())
 
-    countries = ["India","Pakistan","Germany", "USA","China","India","UK","USA"]
-    country_tree = build_tree(countries)
-    print("post order traversal gives this sorted list:",country_tree.post_order_traversal())
-    print("UK is in the list? ", country_tree.Search("UK"))
-    print("Sweden is in the list? ", country_tree.Search("Sweden"))
+    # countries = ["India","Pakistan","Germany", "USA","China","India","UK","USA"]
+    # country_tree = build_tree(countries)
+    # print("post order traversal gives this sorted list:",country_tree.post_order_traversal())
+    # print("UK is in the list? ", country_tree.Search("UK"))
+    # print("Sweden is in the list? ", country_tree.Search("Sweden"))
 
     numbers_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
+    # print("In order traversal gives this sorted list:",numbers_tree.in_order_traversal())
+
+    # print("Min:",numbers_tree.find_min())
+    # print("Max:",numbers_tree.find_max())
+
+    # print("Sum:", numbers_tree.calculate_sum())
+    numbers_tree.delete(20)
     print("In order traversal gives this sorted list:",numbers_tree.in_order_traversal())
-
-    print("Min:",numbers_tree.find_min())
-    print("Max:",numbers_tree.find_max())
-
-    print("Sum:", numbers_tree.calculate_sum())
