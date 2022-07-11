@@ -92,10 +92,10 @@ class BinarySearchTreenode():
     def delete(self,val):
         if val < self.data:
             if self.left:
-                self.left.delete(val)
+                self.left=self.left.delete(val)
         if val > self.data:
             if self.right:
-                self.right.delete(val)
+                self.right=self.right.delete(val)
         
         else:
             if self.left is None and self.right is None:
@@ -144,5 +144,5 @@ if __name__ == "__main__":
     # print("Max:",numbers_tree.find_max())
 
     # print("Sum:", numbers_tree.calculate_sum())
-    numbers_tree.delete(20)
+    numbers_tree.delete(34)
     print("In order traversal gives this sorted list:",numbers_tree.in_order_traversal())
